@@ -1,6 +1,9 @@
 import React, {Fragment, useState} from 'react';
 
-const Budget = () => {
+const Budget = (props) => {
+
+    //get props
+    const { setBudget, setShowBudget } = props;
 
     //define state
     const [ amount, setAmount ] = useState(0);
@@ -17,7 +20,9 @@ const Budget = () => {
         }
 
         //success in validation
-
+        setBudget(amount);
+        setError(false);
+        setShowBudget(false);
 
     }
 
