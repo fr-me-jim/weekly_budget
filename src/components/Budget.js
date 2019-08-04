@@ -1,4 +1,5 @@
 import React, {Fragment, useState} from 'react';
+import Error from './Error';
 
 const Budget = (props) => {
 
@@ -30,7 +31,7 @@ const Budget = (props) => {
         <Fragment>
             <h2>Put your Budget</h2>
 
-            {error ? <p className="alert alert-danger error">Invalid Budget!</p> : null}
+            {error ? <Error message="Invalid Budget!" /> : null}
 
             <form
                 onSubmit={handleSubmit}

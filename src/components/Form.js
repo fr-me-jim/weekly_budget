@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import Error from './Error';
 
 const Form = () => {
 
@@ -24,6 +25,8 @@ const Form = () => {
             onSubmit={handleSubmit}
         >
             <h2>Add here your Expenses</h2>
+
+            {error ? <Error message="Both fields are mandatory or Invalid Budget!" /> : null}
 
             <div className="field">
                 <label>Expense Name</label>
