@@ -4,7 +4,7 @@ import Error from './Error';
 const Budget = (props) => {
 
     //get props
-    const { setBudget, setShowBudget } = props;
+    const { setBudget, setShowBudget, setRemaining } = props;
 
     //define state
     const [ amount, setAmount ] = useState(0);
@@ -24,6 +24,7 @@ const Budget = (props) => {
         setBudget(amount);
         setError(false);
         setShowBudget(false);
+        setRemaining(amount);
 
     }
 
@@ -39,7 +40,7 @@ const Budget = (props) => {
                 <input 
                     type="number" className="u-full-width"
                     placeholder="Add Budget"
-                    onChange={e => setAmount(parseInt(e.target.value), 10)}
+                    onChange={e => setAmount(parseInt(e.target.value, 10))}
                 />
                 <input 
                     type="submit" className="button-primary u-full-width"

@@ -5,7 +5,7 @@ import shortid from 'shortid';
 const ExpenseForm = (props) => {
 
     //props
-    const { setExpense } = props;
+    const { setExpense, setCreateExpense } = props;
 
     //state
     const [ expenseName, setExpenseName ] = useState('');
@@ -17,7 +17,7 @@ const ExpenseForm = (props) => {
         e.preventDefault();
 
         //validate
-        if(expenseAmount < 1 || isNaN( expenseAmount ) || expenseName === ''){
+        if(expenseAmount < 1 || isNaN(expenseAmount) || expenseName === ''){
             setError(true);
             return;
         }
@@ -31,6 +31,7 @@ const ExpenseForm = (props) => {
 
         //send expense to main component
         setExpense(expense);
+        setCreateExpense(true);
 
         //delete alert
         setError(false);
@@ -64,7 +65,7 @@ const ExpenseForm = (props) => {
                 <input 
                     type="number" className="u-full-width"
                     placeholder="Ex. 300"
-                    onChange={e => setExpenseAmount(parseInt(e.target.value), 10)}
+                    onChange={e => setExpenseAmount(parseInt(e.target.value, 10))}
                     value={expenseAmount}
                 />
             </div>
