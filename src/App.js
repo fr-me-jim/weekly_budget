@@ -1,12 +1,14 @@
 import React, {useState} from 'react';
 import Budget from './components/Budget';
-import Form from './components/Form';
+import Expense from './components/Expense';
 
 function App() {
 
   //state
   const [ budget, setBudget ] = useState(0);
   const [ showBudget, setShowBudget ] = useState(true);
+  const [ expense, setExpense ] = useState({});
+  const [ expenses, setExpenses ] = useState([]);
 
   return (
     <div className="App container">
@@ -22,7 +24,9 @@ function App() {
             (
               <div className="row">
                 <div className="one-half column">
-                  <Form />
+                  <Expense 
+                    setExpense={setExpense}
+                  />
                 </div>
 
                 <div className="one-half column">

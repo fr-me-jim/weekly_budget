@@ -1,7 +1,11 @@
 import React, {useState} from 'react';
 import Error from './Error';
+import shortid from 'shortid';
 
-const Form = () => {
+const Expense = (props) => {
+
+    //props
+    const { setExpense } = props;
 
     //state
     const [ expenseName, setExpenseName ] = useState('');
@@ -17,6 +21,23 @@ const Form = () => {
             setError(true);
             return;
         }
+
+        //create expense obj
+        const expense = {
+            expenseName,
+            expenseAmount,
+            id : shortid.generate()
+        }
+
+        //send expense to main component
+        setExpense(expense);
+
+        //delete alert
+        setError(false);
+
+        //refresh expense form
+        setExpenseName('');
+        setExpenseAmount('');
 
     }
 
@@ -34,6 +55,7 @@ const Form = () => {
                     type="text" className="u-full-width"
                     placeholder="Ex. Transport"
                     onChange={e => setExpenseName(e.target.value)}
+                    value={expenseName}
                 />
             </div>
 
@@ -43,6 +65,7 @@ const Form = () => {
                     type="number" className="u-full-width"
                     placeholder="Ex. 300"
                     onChange={e => setExpenseAmount(parseInt(e.target.value), 10)}
+                    value={expenseAmount}
                 />
             </div>
 
@@ -54,4 +77,4 @@ const Form = () => {
     );
 }
  
-export default Form;
+export default Expense;
