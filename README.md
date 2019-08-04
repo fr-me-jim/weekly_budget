@@ -6,7 +6,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Project made with React && [React Hooks](https://en.reactjs.org/docs/hooks-intro.html).
 
-It allows to create a budget and add a record of expenses, and glowing green `#c3e6cb`/ yellow `#ffeeba`/ red `#f5c6cb` , depending on the remaining amount.
+It allows to create a budget and add a record of expenses, and glowing green [#c3e6cb]/ yellow [#ffeeba]/ red [#f5c6cb] , depending on the remaining amount.
 
 ### Aim
 
